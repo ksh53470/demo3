@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<h1>로그인</h1>
+<form method="post" action="/member/login">
+<input th:type="text" placeholder="아이디 입력하라구" name="id"><br/>
+<input th:type="text" placeholder="비번 입력하라구" name="pw"><br/>
+    <input type="submit" value="확인">
+    <input type="reset" value="취소">
+</form>
+<a href="/member/join">회원가입하기</a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+</head>
+<body>
+<h1>회원가입하기</h1>
+<form action="/member/register">
+  <input th:type="text" placeholder="아이디 입력하라구" name="id"><br/>
+  <input th:type="text" placeholder="비번 입력하라구" name="pw"><br/>
+  <input th:type="text" placeholder="주소 입력하라구" name="addr"><br/>
+  <input th:type="text" placeholder="전화번호 입력하라구" name="tel"><br/>
+  <input type="submit" value="가입">
+  <input type="reset" value="리셋">
+</form>
+</body>
+</html>
