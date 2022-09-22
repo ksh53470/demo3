@@ -17,12 +17,12 @@
     </delete>
 
     <!-- 회원 가입 -->
-    <insert id="insertMember" parameterType="com.example.demo3.dto.MemberDTO">
+    <insert id="insertMember" parameterType="com.example.demo3.dto.MemberDTO" >
             INSERT INTO MEMBER(ID, PW, ADDR, TEL) VALUES (#{id}, #{pw}, #{addr}, #{tel})
     </insert>
 
     <!-- 회원 정보 수정 -->
-    <update id="updateMember" parameterType="String">
+    <update id="updateMember" parameterType="com.example.demo3.dto.MemberDTO" >
         UPDATE MEMBER SET PW=#{pw}, ADDR= #{addr}, TEL= #{tel} WHERE ID=#{id}
     </update>
 

@@ -6,8 +6,10 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.example.demo3.dto.MemberDTO;
+import org.springframework.transaction.annotation.Transactional;
 
 @Mapper
+@Transactional
 public interface MemberMapper {
     List<MemberDTO> selectMemberList();
     MemberDTO selectMemberDetail(@Param("paramId") String id);

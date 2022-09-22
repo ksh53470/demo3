@@ -13,11 +13,18 @@
 </head>
 <body>
 <h1>회원정보 수정하기</h1>
+<span th:text="${member.id}"></span>님 안녕하세요<br/>
 <form method="post" action="/member/update">
-  <input type="hidden" th:value="${userid}" name="id"><br/>
+<!--  <input type="hidden" th:value="${userid}" name="id"><br/>
   <input th:type="text" placeholder="비번 입력하라구" name="pw"><br/>
   <input th:type="text" placeholder="주소 입력하라구" name="addr"><br/>
-  <input th:type="text" placeholder="전화번호 입력하라구" name="tel"><br/>
+  <input th:type="text" placeholder="전화번호 입력하라구" name="tel"><br/>-->
+
+ <input type="hidden" th:value="${member.id}" name="id" /><br/>
+    PW :  <input type="text" th:value="${member.pw}" name="pw" /><br/>
+    ADDR :  <input type="text" th:value="${member.addr}" name="addr" /><br/>
+    TEL :  <input type="text" th:value="${member.tel}" name="tel" /><br/>
+
   <input type="submit" value="수정">
   <input type="reset" value="리셋">
 </form>

@@ -91,9 +91,12 @@ public class MemberController {
         return mv;
     }
     @GetMapping("/member/update")
-    public String update() {
-        log.info("========================== MemberController(/member/join) ==================================");
-        return "member/update";
+    public ModelAndView update(@RequestParam String id) {
+        log.info("========================== MemberController(/member/detail) ==================================");
+        ModelAndView mv = new ModelAndView("/member/update");
+        MemberDTO member =memberService.findMemberDetail(id);
+        mv.addObject("member", member);
+        return mv;
     }
 
     @PostMapping("/member/update")
@@ -102,8 +105,10 @@ public class MemberController {
     ) {
         log.info("========================== MemberController(/member/update) ==================================");
 
+        System.out.println(dto);
         memberService.modifyMember(dto);
-        return "redirect:/member/detail";
+        System.out.println(dto.getPw());
+        return "redirect:/member/list";
     }
 
     @RequestMapping("/member/delete")
