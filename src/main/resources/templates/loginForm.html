@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <style>
+    form.form-example {
+      display: table;
+    }
+
+    div.form-example {
+      display: table-row;
+    }
+
+    label, input {
+      display: table-cell;
+      margin-bottom: 10px;
+    }
+
+    label {
+      padding-right: 10px;
+    }
+
+  </style>
+</head>
+<body>
+<form action="/login" method="get" class="form-example">
+  <div class="form-example">
+    <label for="id"> ID : </label>
+    <input type="text" name="id" id="id" required>
+  </div>
+  <div class="form-example">
+    <label for="pw">PW : </label>
+    <input type="text" name="pw" id="pw" required>
+  </div>
+  <div class="form-example">
+    <input type="submit" value="로그인">
+  </div>
+</form>
+</body>
+</html>

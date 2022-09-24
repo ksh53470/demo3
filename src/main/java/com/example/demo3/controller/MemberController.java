@@ -24,12 +24,7 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    @RequestMapping("/")
-    public ModelAndView main() {
-        log.info("========================== MemberController(/main) ==================================");
-        ModelAndView mv=new ModelAndView("/main");
-        return mv;
-    }
+
 
     @RequestMapping("/member/register-form")
     public ModelAndView registerform() {
