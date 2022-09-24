@@ -11,4 +11,6 @@ public interface MemberService {
     void registerMember(MemberDTO dto);
 
     void modifyMember(MemberDTO dto);
+
+    void login(String id, String pw);
 }
