@@ -1,6 +1,8 @@
 package com.example.demo3.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.example.demo3.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +76,15 @@ public class MemberController {
         mv.addObject("list", list);
         return mv;
     }
+    @ResponseBody
+    @RequestMapping("/member/ajax-list")
+    public Map<String , Object> memberAjaxList() {
+        log.info("========================== MemberController(/member/list) ==================================");
+        List<MemberDTO> list=memberService.findMemberList();
+        Map<String,Object> map=new HashMap<>();
+        map.put("list", list);
+        return map;
+    }
 
     @RequestMapping("/member/detail")
     public ModelAndView memberDetail(
@@ -85,6 +96,22 @@ public class MemberController {
         mv.addObject("member", member);
         return mv;
     }
+
+    @ResponseBody
+    @RequestMapping("/member/ajax-detail")
+    public Map<String, String> memberAjaxDetail(
+            @RequestParam String id
+    ) {
+        log.info("========================== MemberController(/member/ajax-detail) ==================================");
+        MemberDTO dto = memberService.findMemberDetail(id);
+        Map<String, String> map = new HashMap<>();
+        map.put("detailmember", dto.getPw());
+        return map;
+    }
+    {
+        id
+    }
+
     @GetMapping("/member/update")
     public ModelAndView update(@RequestParam String id) {
         log.info("========================== MemberController(/member/detail) ==================================");

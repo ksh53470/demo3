@@ -2,10 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <title>Title</title>
+    <script>
+        window.onload = function () {
+        }
+        $(document).ready(function (){
+            $("#listbtn").click(getmemberList);
+            $("#detailbtn").click(getmemberDetailList(this));
+        });
+        function getmemberList() {
+            $.ajax({
+                url:"/member/ajax-list",
+                dataType:"json",
+                success:function(data){
+                    const buffer=["<ol>"];
+                    $.each(data.list, (index, member) => {
+                        buffer.push("<a href='#' id='detailbtn' >");
+                        buffer.push("<li>");
+                        buffer.push(member.id);
+                        buffer.push("</li>");
+                        buffer.push("</a>")
+                    })
+                        buffer.push("</ol>")
+                    ;
+                    $("#listContainer").html(buffer.join(""));
+                }
+            });
+        }
+        function getmemberDetailList(){
+            console.log("a");
+            $.ajax({
+                url: "/member/ajax-detail",
+  //              data: {"senddata" : id},
+                dataType: "json",
+                success:function (data){
+                    console.log(data);
+                }
+            })
+        }
+    </script>
 </head>
 <body>
 <a href="/member/list">회원리스트</a><br/>
+<a href="#" id="listbtn">회원리스트(AJAX)</a><br/>
+<div id="listContainer"></div>
 <a href="/login/form" >회원가입</a>
 
 </body>
